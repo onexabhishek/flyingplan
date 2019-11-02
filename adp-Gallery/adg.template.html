@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flying Plan</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
+   <!-- <link rel="stylesheet" href="style.css"> -->
+   <style type="text/css">
+   body{
+   	
+   	margin: 0;
+   	padding: 0;
+   }
+  
+   .preview {
+  width: 100%;
+  height: 100%;
+  background: rgb(0,0,0,0.4);
+  position: fixed;
+  z-index: 1;
+}
+  
+  #preview-img{
+    /*display: none;*/
+  }
+	.footer {
+	background: #fff;
+	padding: 10px;
+	height: 50px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	}
+   .preview-body {
+	width: 50%;
+	position: relative;
+	margin: 0 auto;
+	top: 15%;
+	box-shadow: 0 0 19px rgba(0,0,0,0.4);
+	border-radius: 15px;
+
+	animation-name: animatetop;
+	animation-duration: 0.8s;
+}
+.preview-body .preview-img {
+	width: 100%;
+  height: 100%;
+}
+@keyframes animatetop{
+    from{top:0;opacity:0}
+    to{top:15%;opacity: 1;}
+}
+   	.plan{
+   		display: inline-block;
+   		width: 75px;
+   		position: ;
+   		bottom: 0;
+   		right: 0;
+   	}
+   	.pre-head {
+	height: 25px;
+	background: #fff;
+	border-radius: 5px 5px 0 0;
+	border: none;
+}
+   	.nav-box {
+	width: 50%;
+	cursor: pointer;
+  position: relative;
+}
+	.toolbox {
+	width: 30px;
+	background: red;
+	height: 100%;
+	text-align: center;
+	color: #fff;
+	font-size: 24px;
+	line-height: 18px;
+	border-top-right-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+.nboxl, .nboxr {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  /*background: #ccc;*/
+  border-radius: 50%;
+  top: 5px;
+  line-height: 1.2;
+  transition: 0.3s;
+}
+.nboxl{
+  padding-left: 3px;
+}
+.nboxr {
+  right: 0;
+  padding-right: 3px;
+}
+.nboxl:hover, .nboxr:hover {
+  background: #eee;
+  /* transform: scale(1.1); */
+  transition: 0.3s;
+  width: 48px;
+  height: 48px;
+  top: -9px;
+  line-height: 2.8;
+
+}
+.nboxl:active, .nboxr:active{
+  background: red;
+  /* transform: scale(1.1); */
+  transition: 0.3s;
+
+}
+.nboxl:active i, .nboxr:active i{
+    /*transition: 0.3s;*/
+  color: #fff;
+}
+.nboxl:hover{
+    padding-left: 14px;
+}
+.nboxr:hover{
+  padding-right:14px;
+}
+.gpreview {
+
+  box-sizing: border-box;
+}
+.gthumbnail {
+  width: 100%;
+  height: 100%;
+}
+.img-control{
+  margin: 0;
+  padding: 0;
+  height: 430px;
+  overflow: hidden;
+  text-align: center;
+}
+.shortarea {
+  position: absolute;
+  /*background-color: red;*/
+  width: 100%;
+  height: 148px;
+  /* margin-top: -108px; */
+  bottom: 70px;
+  overflow: hidden;
+}
+
+/*shortpreview*/
+.shortpreview {
+  /*display: none;*/
+  width: auto;
+  bottom: -70px;
+  height: 100px;
+  /*overflow: hidden;*/
+   white-space: nowrap; 
+  padding: 5px;
+  /* z-index: -1; */
+  position: relative;
+  left: 0;
+}
+#leftshort {
+  position: absolute;
+  left: 0;
+  top: 84px;
+  width: 40px;
+  background: red;
+  height: 40px;
+  line-height: 1.3;
+  font-size: 32px;
+}
+#Rightshort {
+  position: absolute;
+  right: 0;
+  top: 84px;
+  width: 40px;
+  background: red;
+  height: 40px;
+  line-height: 1.3;
+  font-size: 32px;
+}
+/*.spbox {
+  float: left;
+  width: 100px;
+}
+.spbox{
+  width: 100%;
+}*/
+
+
+#id2 img {
+  width: 48px;
+  height: 42px;
+  object-fit: cover;
+  margin-left: 3px;
+  /*display: none;*/
+}
+.shortpreview .gactive {
+    border: 2px solid red;
+    transform: scale(1.2);
+    transition: all 0.2s;
+    display: inline !important;
+}
+/*===zoom===*/
+.z-btn {
+  position: absolute;
+  top: 28px;
+  right: 0px;
+  width: 36%;
+  height: 28%;
+  padding: 5px;
+}
+.z-btn1 {
+  position: absolute;
+  bottom: 61px;
+  right: 0px;
+  width: 36%;
+  height: 28%;
+  padding: 5px;
+}
+.z-btn a,.z-btn1 a {
+  width: 50px;
+  display: block;
+  background: rgba(0,0,0,0.2);
+  float: left;
+  height: 50px;
+  border-radius: 50%;
+  line-height: 1.2;
+  padding-left: ;
+  text-align: center;
+  font-size: 42px;
+  text-decoration: none;
+  font-weight: 1000;
+  color: #ccc;
+  margin-left: 8px;
+}
+#fullWidthImg {
+  width: 100%;
+  height: 100%;
+}
+.fullWidthControl{
+  width: 70% !important;
+  top: 5% !important;
+}
+.shift-right{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.tools {
+  font-size: 56px;
+  margin-top: -2.5rem;
+  margin-right: -3rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.captext {
+  position: absolute;
+  color: #000;
+  bottom: -23px;
+  width: 100%;
+}
+#vidControl {
+  background: #000;
+}
+.gpreview.vidthumb {
+    position: relative;
+    /*display: inline-block;*/
+}
+.gpreview.vidthumb::before {
+    content: '';
+    width: 40%;
+    height: 40%;
+    background: url(./images/vidthumb.png);
+    position: absolute;
+    left: 32%;
+    background-size: contain;
+    top: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.gpreview.vidthumb:hover::before {
+  width: 40%;
+  height: 40%;
+  background: url(./images/hover.png);
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.2s;
+  transform: scale(1.1);
+}
+.width10{
+  width: 80%;
+}
+.adp-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.adp-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+/*===zoom===*/
+
+   </style>
+</head>
+<body>
+
+
+<!-- 
+<img id="pl" class="plan" src="images/p1.png" alt="">
+<img id="preview-img" src="images/bg.jpeg"> -->
+
+<div class="container">
+<div class="row">
+  <div id="admins-gallery" adg-padding="15" adg-height="250" adg-col="4">
+
+  <a class="gpreview" href="images/bg.jpeg" data-title="Abhishek step"><img class="gthumbnail" src="images/p1.png" alt="Awesome plane"></a>
+  
+  <a class="gpreview" href="images/g1.jpg"><img class="gthumbnail" src="images/g1.jpg" alt="Medical"></a>
+  <a class="gpreview" href="images/g2.jpg"><img class="gthumbnail" src="images/g2.jpg" alt=""></a>
+  <a class="gpreview" href="images/g3.jpg"><img class="gthumbnail" src="images/g3.jpg" alt=""></a>
+  <a class="gpreview" href="images/v.mp4"><img class="gthumbnail" src="images/g4.jpg" alt="" data-type="video"></a>
+  <a class="gpreview" href="images/g5.jpg"><img class="gthumbnail" src="images/g5.jpg" alt=""></a>
+  <a class="gpreview" href="images/g6.jpg"><img class="gthumbnail" src="images/g6.jpg" alt=""></a>
+  <a class="gpreview" href="images/1.jpg"><img class="gthumbnail" src="images/1.jpg" alt=""></a>
+  <a class="gpreview" href="images/2.jpg"><img class="gthumbnail" src="images/2.jpg" alt=""></a>
+  <a class="gpreview" href="images/3.jpg"><img class="gthumbnail" src="images/3.jpg" alt=""></a>
+  <a class="gpreview" href="images/4.jpg"><img class="gthumbnail" src="images/4.jpg" alt=""></a>
+  <a class="gpreview" href="images/5.jpg"><img class="gthumbnail" src="images/5.jpg" alt=""></a>
+  <a class="gpreview" href="images/6.jpg"><img class="gthumbnail" src="images/6.jpg" alt=""></a>
+  <a class="gpreview" href="images/v.mp4"><img class="gthumbnail" src="images/g4.jpg" alt="" data-type="video"></a>
+  <a class="gpreview" href="images/7.jpg"><img class="gthumbnail" src="images/7.jpg" alt=""></a>
+  <a class="gpreview" href="images/id1.jpg"><img class="gthumbnail" src="images/id1.jpg" alt=""></a>
+  <a class="gpreview" href="images/id3.jpg"><img class="gthumbnail" src="images/id3.jpg" alt=""></a>
+
+</div>
+
+</div>
+</div>
+
+        
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="engine.js"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+  
+
+
+</body>
+</html>

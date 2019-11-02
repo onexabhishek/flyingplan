@@ -1,0 +1,1 @@
+ - Do no insert any html markup inside anchor tag i.e gpreview,left the only img tag there for proper functioning of admins gallery.If you done that you will propably face error like shortthumb click-unexpected result.

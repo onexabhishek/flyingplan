@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flying Plan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="run-way">
+        <img class="" src="images/p1.png" alt="">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="path/to/popmotion.global.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('img').click(function(){
+              $('img').addClass('take-off');
+              setTimeout(function(){
+                $("img").removeClass("take-off");
+                },10000)
+            });
+            // $('img').click(function(){
+            // for(var i = 0;i<50;i++){
+          
+            //     $("img").animate({right: '+=20em', bottom: '+=10em'},'0.1ms');
+            // }
+            // });
+            
+            });
+    </script>
+
+</body>
+</html>
